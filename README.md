@@ -1,44 +1,59 @@
-# Vedadi Legal Website
+# Vedadi Legal Next.js Website
 
-Responsive static website for Vedadi Legal with:
+Light/gold law firm website built with:
 
-- Landing home page with user agreement
-- About Us, Services, People, Contact Us, and Insight pages
-- WhatsApp contact button
-- Signup forms with thank-you email support
-- No third-party build dependencies
+- Next.js 14 App Router
+- Tailwind CSS
+- Framer Motion
+- Lucide React icons
+- Resend email API
 
 ## Run Locally
 
 ```powershell
-npm start
+npm.cmd install
+npm.cmd run dev
 ```
 
-Then open:
+Open:
 
 ```text
 http://localhost:3000
 ```
 
-## Thank-You Email Setup
+## Environment Variables
 
-The signup form posts to `/api/signup`. It sends a thank-you email when SMTP environment variables are configured:
+`.env.local` is already created with placeholders:
 
-```powershell
-$env:SMTP_HOST="smtp.example.com"
-$env:SMTP_PORT="465"
-$env:SMTP_USER="your-smtp-user"
-$env:SMTP_PASS="your-smtp-password"
-$env:SMTP_FROM="hello@vedadilegal.com"
-npm start
+```text
+RESEND_API_KEY=your_resend_key
+RESEND_FROM_EMAIL=Vedadi Legal <consultations@your-verified-domain.com>
+CONSULTATION_EMAIL_TO=consultations@vedadilegal.com
 ```
 
-If SMTP settings are not provided, the signup still works locally and the server logs the signup, but no real email is sent.
+Replace the placeholder Resend values with real keys to enable:
 
-## Update Contact Details
+- consultation request emails from `/api/send-consultation-email`
 
-Change these placeholders before publishing:
+For consultation emails, `RESEND_FROM_EMAIL` must use a sender/domain verified in Resend, and
+`CONSULTATION_EMAIL_TO` must be the real inbox that should receive consultation requests. The
+consultation API intentionally returns a configuration error while these values are unset or still
+using defaults.
 
-- `hello@vedadilegal.com`
-- `+91 98765 43210`
-- `https://wa.me/919876543210`
+Authentication has been removed from the site. `/sign-in`, `/sign-up`, and `/welcome` redirect to
+the home page.
+
+## Verify
+
+```powershell
+npm.cmd run build
+```
+
+## Main Pages
+
+- `/`
+- `/about`
+- `/services`
+- `/people`
+- `/insight`
+- `/contact`

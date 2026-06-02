@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/[slug]/page": "app/about/[slug]/page.js",
+  "/api/send-consultation-email/route": "app/api/send-consultation-email/route.js",
+  "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
+  "/insight/page": "app/insight/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/people/page": "app/people/page.js",
+  "/people/[slug]/page": "app/people/[slug]/page.js",
+  "/services/page": "app/services/page.js",
+  "/services/[slug]/page": "app/services/[slug]/page.js",
+  "/insight/[slug]/page": "app/insight/[slug]/page.js"
+}
